@@ -1,0 +1,32 @@
+
+/* this is not necesary */
+table {
+    border-collapse: collapse;
+}
+table thead {
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+}
+table thead td {
+    padding:4px;
+    color: #000088; /* idem as tag label */
+}
+table tbody td {
+    margin:2px;
+    padding:4px;
+    border: 1px #ccc solid;
+}
+
+/* Required css */
+table.navigable tbody tr {
+    cursor:pointer;
+}
+
+table.navigable tbody tr:hover {
+    background-color: #eb8f00;
+}
+
+table.navigable tbody tr.focus { /* used by navigatetable.js */
+    background-color: #eb8f00;
+}

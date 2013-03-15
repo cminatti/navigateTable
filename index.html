@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="NavigateTable example">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/navigateTable.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <h1>This is an example of how my "NavigateTable.js" works</h1>
+        <p>This script is a modified version of <a href="http://www.sprymedia.co.uk/article/KeyTable" title="Keytable">KeyTable script</a>.</p>
+        <p>Download this project from github <a href="https://github.com/cminatti/navigateTable" title="Navigate Table">https://github.com/cminatti/navigateTable</a>.</p>
+        <table id="my-navigable-table" class="navigable">
+            <thead>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="id" >1</td>
+                    <td>Lorem ipsum</td>
+                    <td>aaa</td>
+                    <td>bbb</td>
+                </tr>
+                <tr>
+                    <td class="id" >2</td>
+                    <td>Lorem ipsum</td>
+                    <td>ccc</td>
+                    <td>ddd</td>
+                </tr>
+                <tr>
+                    <td class="id" >3</td>
+                    <td>Lorem ipsum</td>
+                    <td>eee</td>
+                    <td>fff</td>
+                </tr>
+                <tr>
+                    <td class="id" >4</td>
+                    <td>Lorem ipsum</td>
+                    <td>ggg</td>
+                    <td>hhh</td>
+                </tr>
+                <tr>
+                    <td class="id" >5</td>
+                    <td>Lorem ipsum</td>
+                    <td>iii</td>
+                    <td>jjj</td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.0.min.js"><\/script>')</script>
+        <script src="js/navigateTable.js"></script>
+        <script>
+            $(document).ready(function() {
+                
+                $("table#my-navigable-table").on("click", "tbody tr", function() {
+                    console.log("Click en row:"+$(this).find('.id').html());
+                });
+                
+                var keys = new NavigateTable({
+                    table: $("table#my-navigable-table")[0],
+                    focusClass: "focus"
+                });
+
+                keys.event.action( null, function( nNode ) {
+                       console.log( "Row action "+$(nNode).find("td.id").html() );
+               } );
+               
+            })
+        </script>
+    </body>
+</html>
