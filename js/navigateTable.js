@@ -354,7 +354,7 @@ function NavigateTable ( oInit )
 	function _fnEventFire ( sType, y )
 	{
             
-//                log("fnEventFire... sType:"+sType+" y:"+y);
+//                console.log("fnEventFire... sType:"+sType+" y:"+y);
 		var iFired = 0;
 		var aEvents = _oaoEvents[sType];
 		for ( var i=0 ; i<aEvents.length ; i++ )
@@ -417,17 +417,17 @@ function NavigateTable ( oInit )
 		var iViewportHeight, iViewportWidth, iScrollTop, iScrollLeft, iHeight, iWidth, aiPos, containerPos;
 		if ( bAutoScroll )
 		{
-//                    log("bAutoScroll ");
+//                    console.log("bAutoScroll ");
 			/* Scroll the viewport such that the new cell is fully visible in the rendered window */
 			if (this.container == null) {
-//                            log("container == Null");
+//                            console.log("container == Null");
                             iViewportHeight = document.documentElement.clientHeight;
                             iViewportWidth = document.documentElement.clientWidth;
                             iScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
                             iScrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
                             containerPos = [0,0];
                         } else {
-//                            log("container => "+this.container);
+//                            console.log("container => "+this.container);
                             iViewportHeight = this.container.offsetHeight;
                             iViewportWidth = this.container.offsetWidth;
                             iScrollTop = this.container.scrollTop;
@@ -435,7 +435,7 @@ function NavigateTable ( oInit )
                             containerPos = _fnGetPos( this.container );
                         }
                         
-//                        log("Autoscroll: "+iViewportHeight+" "+iViewportWidth+" "+iScrollTop+" "+iScrollLeft);
+//                        console.log("Autoscroll: "+iViewportHeight+" "+iViewportWidth+" "+iScrollTop+" "+iScrollLeft);
                         
 			iHeight = nTarget.offsetHeight;
 			aiPos = _fnGetPos( nTarget );
@@ -576,7 +576,7 @@ function NavigateTable ( oInit )
                             }
                             break;
 			case 38: /* up arrow */
-//                                log("Up key pressed "+_iOldY);
+//                                console.log("Up key pressed "+_iOldY);
 				if ( _iOldY > 0 ) {
 					y = _iOldY - 1;
 				} else {
@@ -593,7 +593,7 @@ function NavigateTable ( oInit )
                             }
                             break;
 			case 40: /* down arrow */
-//                                log("Down key pressed "+_iOldY);
+//                                console.log("Down key pressed "+_iOldY);
 				if ( _iOldY < iTableHeight-1 ) {
 					y = _iOldY + 1;
 				} else {
@@ -679,7 +679,7 @@ function NavigateTable ( oInit )
 	}
 	
         /*
-         * Lo mismo q lo anterior pero n es un tr 
+         * Same as before but n is not a tr
          */
 	function _fnCoordsFromRow( n )
 	{
@@ -852,7 +852,7 @@ function NavigateTable ( oInit )
 			
 			jQuery(_nInput).focus( function () {
 				/* See if we want to 'tab into' the table or out */
-                                log("focus...")
+//                                console.log("focus...")
 				if ( !_bInputFocused )
 				{
 					_bKeyCapture = true;
